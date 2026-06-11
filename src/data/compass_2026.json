@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "title": "Political Compass 2026",
+    "version": "1.0.0",
+    "date": "2026-06-11",
+    "author": "Political Compass 2026"
+  },
+  "axes": [
+    {
+      "id": "economy",
+      "name": "Economy",
+      "left_label": "Economic Control",
+      "right_label": "Economic Freedom",
+      "left_description": "Redistribution, strong public services, government economic intervention",
+      "right_description": "Market competition, privatization, low taxes, business freedom",
+      "color": "#5c8a6a",
+      "questions": ["q001", "q002", "q003", "q004", "q005", "q006", "q007", "q008"]
+    },
+    {
+      "id": "social_liberty",
+      "name": "Social Liberty",
+      "left_label": "Authoritarian",
+      "right_label": "Libertarian",
+      "left_description": "Strong social norms, order, state guidance on personal conduct",
+      "right_description": "Maximum personal freedom, minimal social coercion",
+      "color": "#7dab8f",
+      "questions": ["q009", "q010", "q011", "q012", "q013", "q014", "q015", "q016"]
+    },
+    {
+      "id": "globalism_nationalism",
+      "name": "Globalism vs Nationalism",
+      "left_label": "Nationalist",
+      "right_label": "Globalist",
+      "left_description": "Protectionism, border control, sovereignty first",
+      "right_description": "International cooperation, open borders, free trade",
+      "color": "#4a7c6f",
+      "questions": ["q017", "q018", "q019", "q020", "q021", "q022", "q023", "q024"]
+    },
+    {
+      "id": "institutional_trust",
+      "name": "Institutional Trust",
+      "left_label": "Populist",
+      "right_label": "Pro-Institution",
+      "left_description": "Skepticism of elites, people vs establishment",
+      "right_description": "Trust in experts, media, courts, bureaucracy",
+      "color": "#6b9080",
+      "questions": ["q025", "q026", "q027", "q028", "q029", "q030", "q031", "q032"]
+    },
+    {
+      "id": "science_health",
+      "name": "Science & Public Health",
+      "left_label": "Skeptical",
+      "right_label": "Pro-Science",
+      "left_description": "Low trust in health institutions, anti-mandate, individual choice",
+      "right_description": "Trust in medical science, evidence-based policy, public health mandates",
+      "color": "#52a87a",
+      "questions": ["q033", "q034", "q035", "q036", "q037", "q038", "q039", "q040"]
+    },
+    {
+      "id": "technology_ai",
+      "name": "Technology & AI",
+      "left_label": "Regulatory",
+      "right_label": "Accelerationist",
+      "left_description": "Strong AI regulation, safety-first, labor protection",
+      "right_description": "Rapid AI development, tech innovation, minimal regulation",
+      "color": "#5b9a8f",
+      "questions": ["q041", "q042", "q043", "q044", "q045", "q046", "q047", "q048"]
+    },
+    {
+      "id": "climate_energy",
+      "name": "Climate & Energy",
+      "left_label": "Pragmatic",
+      "right_label": "Decarbonization",
+      "left_description": "Slower transition, cost focus, fossil fuels, techno-optimism without mandates",
+      "right_description": "Aggressive climate policy, renewables, possible nuclear",
+      "color": "#4d8f68",
+      "questions": ["q049", "q050", "q051", "q052", "q053", "q054", "q055", "q056"]
+    },
+    {
+      "id": "information_truth",
+      "name": "Information & Truth",
+      "left_label": "Pro-Free Speech",
+      "right_label": "Pro-Regulation",
+      "left_description": "Opposition to censorship, skepticism of truth enforcement, open discourse",
+      "right_description": "Support moderation to reduce misinformation, platform accountability",
+      "color": "#8fae99",
+      "questions": ["q057", "q058", "q059", "q060", "q061", "q062", "q063", "q064"]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q001",
+      "text": "The government should redistribute wealth from the rich to the poor.",
+      "axis_id": "economy",
+      "direction": -1
+    },
+    {
+      "id": "q002",
+      "text": "Privatization improves the efficiency of public services.",
+      "axis_id": "economy",
+      "direction": 1
+    },
+    {
+      "id": "q003",
+      "text": "High taxes on businesses hurt economic growth.",
+      "axis_id": "economy",
+      "direction": 1
+    },
+    {
+      "id": "q004",
+      "text": "Universal public services like Medicare are more important than keeping taxes low.",
+      "axis_id": "economy",
+      "direction": -1
+    },
+    {
+      "id": "q005",
+      "text": "Strong unions are essential for protecting workers' rights.",
+      "axis_id": "economy",
+      "direction": -1
+    },
+    {
+      "id": "q006",
+      "text": "The free market, left alone, produces the best outcomes for society.",
+      "axis_id": "economy",
+      "direction": 1
+    },
+    {
+      "id": "q007",
+      "text": "Governments should cap CEO pay relative to average worker wages.",
+      "axis_id": "economy",
+      "direction": -1
+    },
+    {
+      "id": "q008",
+      "text": "Red tape and regulation are the biggest obstacles to prosperity.",
+      "axis_id": "economy",
+      "direction": 1
+    },
+    {
+      "id": "q009",
+      "text": "The government has no right to tell adults what they can do with their own bodies.",
+      "axis_id": "social_liberty",
+      "direction": 1
+    },
+    {
+      "id": "q010",
+      "text": "Society needs stronger moral standards enforced by law.",
+      "axis_id": "social_liberty",
+      "direction": -1
+    },
+    {
+      "id": "q011",
+      "text": "Drug use should be decriminalised. It's a personal choice, not a crime.",
+      "axis_id": "social_liberty",
+      "direction": 1
+    },
+    {
+      "id": "q012",
+      "text": "Traditional family structures should be actively promoted by government policy.",
+      "axis_id": "social_liberty",
+      "direction": -1
+    },
+    {
+      "id": "q013",
+      "text": "People should be free to express themselves however they want, even if others find it offensive.",
+      "axis_id": "social_liberty",
+      "direction": 1
+    },
+    {
+      "id": "q014",
+      "text": "Law and order should take priority over individual privacy rights.",
+      "axis_id": "social_liberty",
+      "direction": -1
+    },
+    {
+      "id": "q015",
+      "text": "Same-sex marriage and gender identity rights are non-negotiable civil liberties.",
+      "axis_id": "social_liberty",
+      "direction": 1
+    },
+    {
+      "id": "q016",
+      "text": "Surveillance cameras and police powers should be expanded to keep communities safe.",
+      "axis_id": "social_liberty",
+      "direction": -1
+    },
+    {
+      "id": "q017",
+      "text": "Australia should prioritise its own interests over international obligations.",
+      "axis_id": "globalism_nationalism",
+      "direction": -1
+    },
+    {
+      "id": "q018",
+      "text": "Global problems like climate change require binding international agreements.",
+      "axis_id": "globalism_nationalism",
+      "direction": 1
+    },
+    {
+      "id": "q019",
+      "text": "Immigration should be significantly reduced to protect local jobs and culture.",
+      "axis_id": "globalism_nationalism",
+      "direction": -1
+    },
+    {
+      "id": "q020",
+      "text": "Free trade agreements benefit ordinary people, not just corporations.",
+      "axis_id": "globalism_nationalism",
+      "direction": 1
+    },
+    {
+      "id": "q021",
+      "text": "Buying Australian-made products should be encouraged even if they cost more.",
+      "axis_id": "globalism_nationalism",
+      "direction": -1
+    },
+    {
+      "id": "q022",
+      "text": "Refugees fleeing war and persecution deserve protection regardless of where they come from.",
+      "axis_id": "globalism_nationalism",
+      "direction": 1
+    },
+    {
+      "id": "q023",
+      "text": "Multiculturalism has weakened national identity.",
+      "axis_id": "globalism_nationalism",
+      "direction": -1
+    },
+    {
+      "id": "q024",
+      "text": "Countries should work together through organisations like the UN rather than going it alone.",
+      "axis_id": "globalism_nationalism",
+      "direction": 1
+    },
+    {
+      "id": "q025",
+      "text": "The mainstream media cannot be trusted to report honestly.",
+      "axis_id": "institutional_trust",
+      "direction": -1
+    },
+    {
+      "id": "q026",
+      "text": "Scientists and public health experts should have significant influence on government policy.",
+      "axis_id": "institutional_trust",
+      "direction": 1
+    },
+    {
+      "id": "q027",
+      "text": "Career politicians are out of touch with ordinary people.",
+      "axis_id": "institutional_trust",
+      "direction": -1
+    },
+    {
+      "id": "q028",
+      "text": "Courts and the judiciary should remain independent from political pressure.",
+      "axis_id": "institutional_trust",
+      "direction": 1
+    },
+    {
+      "id": "q029",
+      "text": "The 'establishment' works against the interests of everyday Australians.",
+      "axis_id": "institutional_trust",
+      "direction": -1
+    },
+    {
+      "id": "q030",
+      "text": "Public servants and bureaucrats generally act in the public interest.",
+      "axis_id": "institutional_trust",
+      "direction": 1
+    },
+    {
+      "id": "q031",
+      "text": "A political outsider would do a better job running the country than experienced politicians.",
+      "axis_id": "institutional_trust",
+      "direction": -1
+    },
+    {
+      "id": "q032",
+      "text": "Democratic institutions, even when imperfect, are worth defending.",
+      "axis_id": "institutional_trust",
+      "direction": 1
+    },
+    {
+      "id": "q033",
+      "text": "Public health mandates (e.g. vaccines, masks) are justified when they protect society.",
+      "axis_id": "science_health",
+      "direction": 1
+    },
+    {
+      "id": "q034",
+      "text": "Individual choice should always override public health mandates.",
+      "axis_id": "science_health",
+      "direction": -1
+    },
+    {
+      "id": "q035",
+      "text": "Medical science is generally trustworthy when forming government policy.",
+      "axis_id": "science_health",
+      "direction": 1
+    },
+    {
+      "id": "q036",
+      "text": "Big Pharma puts profits ahead of public health.",
+      "axis_id": "science_health",
+      "direction": -1
+    },
+    {
+      "id": "q037",
+      "text": "Childhood vaccination programs should be mandatory for school enrolment.",
+      "axis_id": "science_health",
+      "direction": 1
+    },
+    {
+      "id": "q038",
+      "text": "Natural remedies are often safer and more effective than pharmaceutical treatments.",
+      "axis_id": "science_health",
+      "direction": -1
+    },
+    {
+      "id": "q039",
+      "text": "Governments should fund public health campaigns based on the best available evidence.",
+      "axis_id": "science_health",
+      "direction": 1
+    },
+    {
+      "id": "q040",
+      "text": "Doctors and health authorities have too much power over people's personal decisions.",
+      "axis_id": "science_health",
+      "direction": -1
+    },
+    {
+      "id": "q041",
+      "text": "AI development should move as fast as possible. Regulation will only hold us back.",
+      "axis_id": "technology_ai",
+      "direction": 1
+    },
+    {
+      "id": "q042",
+      "text": "Governments should impose strict safety regulations on AI before it's widely deployed.",
+      "axis_id": "technology_ai",
+      "direction": -1
+    },
+    {
+      "id": "q043",
+      "text": "Automation and AI will create more jobs than they destroy in the long run.",
+      "axis_id": "technology_ai",
+      "direction": 1
+    },
+    {
+      "id": "q044",
+      "text": "Tech companies like Google and Meta have too much power and need breaking up.",
+      "axis_id": "technology_ai",
+      "direction": -1
+    },
+    {
+      "id": "q045",
+      "text": "Australia should invest heavily in becoming a global tech and AI hub.",
+      "axis_id": "technology_ai",
+      "direction": 1
+    },
+    {
+      "id": "q046",
+      "text": "Workers whose jobs are replaced by AI deserve guaranteed retraining and income support.",
+      "axis_id": "technology_ai",
+      "direction": -1
+    },
+    {
+      "id": "q047",
+      "text": "Facial recognition and AI surveillance should be banned in public spaces.",
+      "axis_id": "technology_ai",
+      "direction": -1
+    },
+    {
+      "id": "q048",
+      "text": "Technological progress is the best solution to most of society's problems.",
+      "axis_id": "technology_ai",
+      "direction": 1
+    },
+    {
+      "id": "q049",
+      "text": "Australia should aim for net zero emissions as quickly as possible, regardless of cost.",
+      "axis_id": "climate_energy",
+      "direction": 1
+    },
+    {
+      "id": "q050",
+      "text": "Coal and gas should remain part of Australia's energy mix for decades to come.",
+      "axis_id": "climate_energy",
+      "direction": -1
+    },
+    {
+      "id": "q051",
+      "text": "Nuclear energy should be part of Australia's clean energy future.",
+      "axis_id": "climate_energy",
+      "direction": 1
+    },
+    {
+      "id": "q052",
+      "text": "Climate change policies shouldn't hurt household budgets or cost of living.",
+      "axis_id": "climate_energy",
+      "direction": -1
+    },
+    {
+      "id": "q053",
+      "text": "Governments should ban new fossil fuel projects and redirect funding to renewables.",
+      "axis_id": "climate_energy",
+      "direction": 1
+    },
+    {
+      "id": "q054",
+      "text": "The economic costs of aggressive climate action outweigh the environmental benefits.",
+      "axis_id": "climate_energy",
+      "direction": -1
+    },
+    {
+      "id": "q055",
+      "text": "Electric vehicles should be subsidised to speed up the transition away from petrol.",
+      "axis_id": "climate_energy",
+      "direction": 1
+    },
+    {
+      "id": "q056",
+      "text": "Individual lifestyle changes matter less than what corporations and governments do on climate.",
+      "axis_id": "climate_energy",
+      "direction": 1
+    },
+    {
+      "id": "q057",
+      "text": "Social media platforms should be legally required to remove harmful misinformation.",
+      "axis_id": "information_truth",
+      "direction": 1
+    },
+    {
+      "id": "q058",
+      "text": "People should be free to say almost anything online, even if it's false or hateful.",
+      "axis_id": "information_truth",
+      "direction": -1
+    },
+    {
+      "id": "q059",
+      "text": "Governments should not decide what is true or false for the public.",
+      "axis_id": "information_truth",
+      "direction": -1
+    },
+    {
+      "id": "q060",
+      "text": "Fact-checking organisations play a valuable role in public discourse.",
+      "axis_id": "information_truth",
+      "direction": 1
+    },
+    {
+      "id": "q061",
+      "text": "Section 18C-style hate speech laws strike the right balance between free speech and protection.",
+      "axis_id": "information_truth",
+      "direction": 1
+    },
+    {
+      "id": "q062",
+      "text": "Censorship, even of dangerous ideas, always does more harm than good.",
+      "axis_id": "information_truth",
+      "direction": -1
+    },
+    {
+      "id": "q063",
+      "text": "News outlets should be held legally accountable for publishing false information.",
+      "axis_id": "information_truth",
+      "direction": 1
+    },
+    {
+      "id": "q064",
+      "text": "The best response to bad speech is more speech, not regulation or bans.",
+      "axis_id": "information_truth",
+      "direction": -1
+    }
+  ]
+}
