@@ -11,7 +11,7 @@ export default function AxisSpectrum({
   leftLabel,
   rightLabel,
   score,
-  accent = "#72c94e",
+  accent = "#62c454",
 }: AxisSpectrumProps) {
   return (
     <div className="axis-spectrum">

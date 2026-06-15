@@ -7,9 +7,10 @@ function polarToCartesian(angle: number, radius: number, cx: number, cy: number)
 
 const LABELS = ["Eco", "Lib", "Glob", "Inst", "Sci", "Tech", "Clim", "Info"];
 
-const SAGE = "#72c94e";
-const SAGE_FAINT = "rgba(107, 158, 120, 0.15)";
-const SAGE_LINE = "rgba(107, 158, 120, 0.25)";
+const SAGE = "#62c454";
+const SAGE_FAINT = "rgba(98, 196, 84, 0.14)";
+const SAGE_LINE = "rgba(98, 196, 84, 0.24)";
+const LABEL_FILL = "#7d9186";
 
 export default function CompassPreview() {
   const cx = 120;
@@ -70,7 +71,7 @@ export default function CompassPreview() {
               y={labelPt.y}
               textAnchor="middle"
               dominantBaseline="middle"
-              fill="#8fa898"
+              fill={LABEL_FILL}
               fontSize="9"
               fontFamily="var(--font-exo2)"
               fontWeight="500"

@@ -11,7 +11,10 @@ import {
 } from "recharts";
 import type { Axis, AxisScore } from "@/lib/types";
 
-const CHART_GREEN = "#72c94e";
+const CHART_GREEN = "#62c454";
+const GRID_STROKE = "#243340";
+const TICK_PRIMARY = "#7d9186";
+const TICK_SECONDARY = "#546660";
 
 interface RadarChartProps {
   axes: Axis[];
@@ -34,15 +37,15 @@ export default function RadarChart({ axes, scores }: RadarChartProps) {
     <div className="h-full w-full min-h-[280px]">
       <ResponsiveContainer width="100%" height="100%">
         <RechartsRadar data={data} cx="50%" cy="50%" outerRadius="78%">
-          <PolarGrid stroke="#3a4f42" radialLines={true} />
+          <PolarGrid stroke={GRID_STROKE} radialLines={true} />
           <PolarAngleAxis
             dataKey="axis"
-            tick={{ fill: "#8fa898", fontSize: 12, fontFamily: "var(--font-exo2)", fontWeight: 500 }}
+            tick={{ fill: TICK_PRIMARY, fontSize: 12, fontFamily: "var(--font-exo2)", fontWeight: 500 }}
           />
           <PolarRadiusAxis
             angle={90}
             domain={[0, 100]}
-            tick={{ fill: "#5f7568", fontSize: 10 }}
+            tick={{ fill: TICK_SECONDARY, fontSize: 10 }}
             tickCount={6}
             axisLine={false}
           />

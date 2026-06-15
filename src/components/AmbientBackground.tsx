@@ -15,6 +15,8 @@ export default function AmbientBackground() {
 
     let effect: VantaEffect | null = null;
     let cancelled = false;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let idleId: number | null = null;
 
     const init = async () => {
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -37,15 +39,31 @@ export default function AmbientBackground() {
         minWidth: 200,
         scale: 1,
         scaleMobile: 1,
-        color: 0xc8ef5a,
-        backgroundColor: 0x1a211c,
+        color: 0x489650,
+        backgroundColor: 0x0c1520,
       });
     };
 
-    init();
+    const scheduleInit = () => {
+      timeoutId = setTimeout(() => {
+        if ("requestIdleCallback" in window) {
+          idleId = window.requestIdleCallback(() => {
+            init();
+          }, { timeout: 2200 });
+        } else {
+          init();
+        }
+      }, 900);
+    };
+
+    scheduleInit();
 
     return () => {
       cancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      if (idleId !== null && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+      }
       effect?.destroy();
     };
   }, []);

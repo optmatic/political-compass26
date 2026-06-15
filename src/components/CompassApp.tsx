@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import compassData from "@/data/compass_2026.json";
 import type { AppPhase, CompassData, CompassResult, Question, Responses } from "@/lib/types";
@@ -36,45 +36,30 @@ export default function CompassApp() {
     setPhase("quiz");
   }, []);
 
-  const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (advanceTimerRef.current) clearTimeout(advanceTimerRef.current);
-    };
-  }, []);
-
   const handleAnswer = useCallback(
     (value: number) => {
       const q = questions[currentIndex];
-      if (advanceTimerRef.current) {
-        clearTimeout(advanceTimerRef.current);
-        advanceTimerRef.current = null;
-      }
-
-      const updated = { ...responses, [q.id]: value };
-      setResponses(updated);
-
-      advanceTimerRef.current = setTimeout(() => {
-        advanceTimerRef.current = null;
-        if (currentIndex < questions.length - 1) {
-          setCurrentIndex((i) => i + 1);
-        } else {
-          setResult(computeScores(data, updated, questions));
-          setPhase("results");
-        }
-      }, 300);
+      setResponses((current) => ({ ...current, [q.id]: value }));
     },
-    [questions, currentIndex, responses]
+    [questions, currentIndex]
   );
 
   const handleBack = useCallback(() => {
-    if (advanceTimerRef.current) {
-      clearTimeout(advanceTimerRef.current);
-      advanceTimerRef.current = null;
-    }
     if (currentIndex > 0) setCurrentIndex((i) => i - 1);
   }, [currentIndex]);
+
+  const handleNext = useCallback(() => {
+    const q = questions[currentIndex];
+    if (!q || responses[q.id] === undefined) return;
+
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex((i) => i + 1);
+      return;
+    }
+
+    setResult(computeScores(data, responses, questions));
+    setPhase("results");
+  }, [questions, currentIndex, responses]);
 
   const currentQuestion = questions[currentIndex];
   const currentAxis =
@@ -106,8 +91,11 @@ export default function CompassApp() {
                 value={responses[currentQuestion.id]}
                 onAnswer={handleAnswer}
                 onBack={handleBack}
+                onNext={handleNext}
                 onHome={goHome}
                 canGoBack={currentIndex > 0}
+                canGoNext={responses[currentQuestion.id] !== undefined}
+                isLast={currentIndex === questions.length - 1}
               />
             </div>
           )}
