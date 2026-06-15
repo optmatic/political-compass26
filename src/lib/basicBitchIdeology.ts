@@ -14,6 +14,21 @@ function deviationFromCenter(scores: number[]): number {
   return scores.reduce((sum, s) => sum + Math.abs(s - 50), 0) / scores.length;
 }
 
+function centerMatch(scores: number[]): number {
+  const averageDeviation = deviationFromCenter(scores);
+  const widestDeviation = Math.max(...scores.map((s) => Math.abs(s - 50)));
+
+  if (averageDeviation <= 4 && widestDeviation <= 9) {
+    return 76 - averageDeviation * 3;
+  }
+
+  if (averageDeviation <= 7 && widestDeviation <= 14) {
+    return 56 - averageDeviation * 4;
+  }
+
+  return Math.max(0, 24 - averageDeviation * 2 - Math.max(0, widestDeviation - 18));
+}
+
 interface IdeologyCandidate extends BasicBitchIdeology {
   match: number;
 }
@@ -35,7 +50,7 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
   const climateActivist = climate;
   const proScience = science;
   const proModeration = info;
-  const centrist = 100 - deviationFromCenter([
+  const scores = [
     economy,
     social,
     globalism,
@@ -43,14 +58,15 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
     science,
     climate,
     info,
-  ]);
+  ];
+  const centrist = centerMatch(scores);
 
   const candidates: IdeologyCandidate[] = [
     {
-      label: "Possible Nazi",
+      label: "Far Right Nazi",
       tagline: "Very online, very concerned about borders",
       blurb:
-        "Nationalist, authoritarian, populist — the unholy trinity. You'd probably get banned from a family WhatsApp group within a week.",
+        "Nationalist, authoritarian, populist: the unholy trinity. You'd probably get banned from a family WhatsApp group within a week.",
       match:
         nationalist * 0.32 +
         authoritarian * 0.28 +
@@ -59,7 +75,7 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
         leftEconomy * 0.08,
     },
     {
-      label: "Far Right Conservative",
+      label: "Right-Wing Culture Warrior",
       tagline: "Tradition, markets, and a podcast about both",
       blurb:
         "Free markets, closed borders, strong vibes about 'the way things used to be.' Owns at least one flag-themed merchandise item.",
@@ -71,7 +87,7 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
         populist * 0.1,
     },
     {
-      label: "Woke",
+      label: "Woke Leftist",
       tagline: "Posting through it, sustainably",
       blurb:
         "Globalist, pro-science, decarbonisation maxxer. Your bio probably mentions pronouns and a mutual aid link.",
@@ -83,7 +99,7 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
         leftEconomy * 0.1,
     },
     {
-      label: "Socialist",
+      label: "Champagne Socialist",
       tagline: "Eat the rich (but make it aesthetic)",
       blurb:
         "Strong redistribution energy. You've explained surplus value to someone at a party who did not ask.",
@@ -95,7 +111,7 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
         (100 - proModeration) * 0.1,
     },
     {
-      label: "Left Wing",
+      label: "Soft Lefty",
       tagline: "Progressive, but still pays taxes willingly",
       blurb:
         "Leans progressive on most things without going full manifesto. Probably has strong opinions about healthcare.",
@@ -107,7 +123,7 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
         proScience * 0.2,
     },
     {
-      label: "Right Wing",
+      label: "Free-Market Trad",
       tagline: "Markets good, change suspicious",
       blurb:
         "Economically free-market, culturally cautious. Thinks most problems have a private-sector solution somewhere.",
@@ -119,10 +135,10 @@ export function getBasicBitchIdeology(axisScores: AxisScore[]): BasicBitchIdeolo
         (100 - proModeration) * 0.15,
     },
     {
-      label: "Moderate",
+      label: "Basic Bitch Moderate",
       tagline: "Both sides have a point (allegedly)",
       blurb:
-        "Genuinely balanced — or painfully indecisive, depending who you ask. The political equivalent of ordering 'surprise me' at a restaurant.",
+        "Genuinely balanced, or painfully indecisive, depending who you ask. The political equivalent of ordering 'surprise me' at a restaurant.",
       match: centrist,
     },
   ];

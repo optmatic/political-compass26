@@ -57,18 +57,6 @@ export default function NavHeader({ onHome, phase }: NavHeaderProps) {
             );
           })}
         </nav>
-
-        {phase !== "welcome" ? (
-          <button
-            type="button"
-            onClick={onHome}
-            className="mc-btn-ghost mc-focus-ring px-4 py-2"
-          >
-            Home
-          </button>
-        ) : (
-          <div className="w-[4.5rem]" aria-hidden />
-        )}
       </div>
     </header>
   );

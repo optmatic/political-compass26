@@ -40,7 +40,7 @@ export default function QuestionCard({
   const [isExplainerOpen, setIsExplainerOpen] = useState(false);
   const meta = getAxisMeta(axis.id);
   // When direction is -1, agreeing pushes toward left_label but Agree sits on the
-  // right of the Likert scale — swap spectrum endpoints so labels align with choices.
+  // right of the Likert scale, so swap spectrum endpoints to keep labels aligned with choices.
   const spectrumLeftLabel =
     question.direction === -1 ? axis.right_label : axis.left_label;
   const spectrumRightLabel =

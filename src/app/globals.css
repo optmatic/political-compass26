@@ -11,7 +11,7 @@
   --ink-subtle: #b4c0b8;
   --ink-muted: #7d9186;
   --ink-faint: #546660;
-  /* Sage & greens — tuned for dark backgrounds */
+  /* Sage & greens, tuned for dark backgrounds */
   --neon: #62c454;
   --neon-dim: #4a9e3a;
   --green-dark: #1a4530;
@@ -115,9 +115,52 @@ a[href],
   outline-offset: 2px;
 }
 
-/* ── Ambient: Vanta topology flow field ── */
+/* ── Ambient: instant CSS topology field ── */
 .ambient-vanta {
-  background: var(--void);
+  background-color: var(--void);
+  background-image:
+    radial-gradient(ellipse at 72% 16%, rgba(98, 196, 84, 0.16), transparent 34%),
+    radial-gradient(ellipse at 18% 84%, rgba(72, 150, 80, 0.14), transparent 42%),
+    repeating-linear-gradient(
+      112deg,
+      rgba(114, 201, 100, 0.05) 0,
+      rgba(114, 201, 100, 0.05) 1px,
+      transparent 1px,
+      transparent 9px
+    ),
+    repeating-radial-gradient(
+      ellipse at 68% 44%,
+      rgba(114, 201, 100, 0.08) 0,
+      rgba(114, 201, 100, 0.08) 1px,
+      transparent 2px,
+      transparent 12px
+    );
+  background-size: auto, auto, 42px 42px, 100% 100%;
+}
+
+.ambient-vanta::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background:
+    repeating-conic-gradient(
+      from 18deg at 58% 50%,
+      transparent 0deg,
+      rgba(98, 196, 84, 0.09) 0.45deg,
+      transparent 0.9deg,
+      transparent 2.8deg
+    );
+  opacity: 0.46;
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.ambient-vanta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(12, 21, 32, 0.9) 0%, transparent 34%, transparent 70%, rgba(12, 21, 32, 0.68) 100%),
+    linear-gradient(180deg, rgba(12, 21, 32, 0.74) 0%, transparent 26%, rgba(12, 21, 32, 0.86) 100%);
 }
 
 .ambient-wash {

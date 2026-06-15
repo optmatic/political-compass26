@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { AnimatePresence } from "framer-motion";
 import compassData from "@/data/compass_2026.json";
 import type { AppPhase, CompassData, CompassResult, Question, Responses } from "@/lib/types";
@@ -9,9 +10,11 @@ import AmbientBackground from "@/components/AmbientBackground";
 import NavHeader from "@/components/NavHeader";
 import WelcomeScreen from "@/components/WelcomeScreen";
 import QuestionCard from "@/components/QuestionCard";
-import ResultsView from "@/components/ResultsView";
 
 const data = compassData as CompassData;
+const ResultsView = dynamic(() => import("@/components/ResultsView"), {
+  ssr: false,
+});
 
 export default function CompassApp() {
   const [phase, setPhase] = useState<AppPhase>("welcome");
